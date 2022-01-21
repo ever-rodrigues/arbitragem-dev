@@ -7,56 +7,47 @@ import java.util.Set;
 
 public class Var extends Referee{
 
-    private Set<Event> eventsToDo = new LinkedHashSet<>();
-    private Set<Event> eventsDone = new LinkedHashSet<>();
+    private Set<Subject> matchToDo = new LinkedHashSet<>();
+    private Set<Subject> matchDone = new LinkedHashSet<>();
 
-    public Var(String name,String position) {
-        super(name,position);
+
+    public void addHappening(Happening happening){
+        this.matchToDo.addAll(happening.getMatchList());
+        happening.getRefereeList().add(this);
     }
 
-
-    public void addEventsMatch(Event events){
-        this.eventsToDo.addAll(events.getMatches());
-        events.getOnVars().add(this);
-    }
-
-    public void addEventsTraining(Event events){
-        this.eventsToDo.addAll(events.getTrainingPrograms());
-        events.getOnVars().add(this);
-    }
-
-    public void develop() {
-        Optional<Event> events = this.eventsToDo.stream().findFirst();
-        if (events.isPresent()) {
-            this.eventsDone.add(events.get());
-            this.eventsToDo.remove(events.get());
-        }
-        else {
-            System.out.println("You already did this Event");
+    public void develop(){
+        Optional<Subject> subject = this.matchDone.stream().findFirst();
+        if(subject.isPresent()){
+            this.matchDone.add(subject.get());
+            this.matchToDo.remove(subject.get());
+        }else {
+            System.out.println("You are not aplyed no any Match");
         }
     }
 
-    public double calcTotalXP(){
-        return this.eventsDone
+    public double calcTotalXp(){
+        return this.matchDone
                 .stream()
-                .mapToDouble(Event::calcXP)
+                .mapToDouble(Subject::calcXP)
                 .sum();
     }
 
-    public Set<Event> getEventsToDo() {
-        return eventsToDo;
+
+    public Set<Subject> getMatchToDo() {
+        return matchToDo;
     }
 
-    public void setEventsToDo(Set<Event> eventsToDo) {
-        this.eventsToDo = eventsToDo;
+    public void setMatchToDo(Set<Subject> matchToDo) {
+        this.matchToDo = matchToDo;
     }
 
-    public Set<Event> getEventsDone() {
-        return eventsDone;
+    public Set<Subject> getMatchDone() {
+        return matchDone;
     }
 
-    public void setEventsDone(Set<Event> eventsDone) {
-        this.eventsDone = eventsDone;
+    public void setMatchDone(Set<Subject> matchDone) {
+        this.matchDone = matchDone;
     }
 
 
@@ -64,13 +55,12 @@ public class Var extends Referee{
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         Var var = (Var) o;
-        return Objects.equals(eventsToDo, var.eventsToDo) && Objects.equals(eventsDone, var.eventsDone);
+        return Objects.equals(matchToDo, var.matchToDo) && Objects.equals(matchDone, var.matchDone);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), eventsToDo, eventsDone);
+        return Objects.hash(matchToDo, matchDone);
     }
 }

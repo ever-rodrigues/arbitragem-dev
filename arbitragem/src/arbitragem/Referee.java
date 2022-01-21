@@ -7,15 +7,13 @@ import java.util.Set;
 
 public class Referee {
     private String name;
-    private String position;
+    private String occupation;
+    private String federation;
+    private String category;
 
-    public String getPosition() {
-        return position;
-    }
 
-    public void setPosition(String position) {
-        this.position = position;
-    }
+
+
 
     public String getName() {
         return name;
@@ -25,9 +23,29 @@ public class Referee {
         this.name = name;
     }
 
-    public Referee(String name,String position) {
-        this.name = name;
-        this.position=position;
+    public String getOccupation() {
+        return occupation;
     }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+    public String getFederation() {
+        return federation;
+    }
+
+    public void setFederation(String federation) {
+        this.federation = federation;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
 
 }
