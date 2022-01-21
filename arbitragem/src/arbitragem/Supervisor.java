@@ -25,6 +25,7 @@ public class Supervisor extends Referee{
 
     public void eventsDone(){
         System.out.println("EVENTS DONE! "+"QUERY ON: "+ LocalDateTime.now());
+        System.out.println(this.getName());
         Iterator<Subject> iterator = eventsDone.iterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next());
@@ -34,6 +35,7 @@ public class Supervisor extends Referee{
 
     public void eventsToDo(){
         System.out.println("EVENTS TO DO! "+"QUERY ON: "+LocalDateTime.now());
+        System.out.println(this.getName());
         Iterator<Subject> iterator = eventsToDo.iterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next());

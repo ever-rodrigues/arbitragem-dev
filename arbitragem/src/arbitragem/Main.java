@@ -1,12 +1,14 @@
 package arbitragem;
 
+import javax.imageio.plugins.jpeg.JPEGImageReadParam;
 import javax.swing.*;
 import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
-
+//TEAMS
         Team vasco = new Team("Vasco da Gama","Rio de Janeiro","First Division");
         Team americaMg = new Team("America MG","Minas Gerais","First Division");
         Team athletico = new Team("Athetico PR","Parana","First Division");
@@ -28,53 +30,78 @@ public class Main {
         Team santos = new Team("Santos","Sao Paulo","First Division");
         Team saoPaulo = new Team("Sao Paulo","Sao Paulo","First Division");
 
+//REFERESS
+        PitchReferee pitchAndre = new PitchReferee();
+        pitchAndre.setName("Andre Luis");
+        pitchAndre.setCategory("MASTER");
+        pitchAndre.setFederation("GO");
+        pitchAndre.setOccupation("Master Referee");
+
+
+        PitchReferee pitchDewson = new PitchReferee();
+        pitchDewson.setName("Dewson Fernando Freitas da Silva");
+        pitchDewson.setCategory("MASTER");
+        pitchDewson.setFederation("PA");
+        pitchDewson.setOccupation("Assist Referee");
+
+        PitchReferee pitchElmo = new PitchReferee();
+        pitchElmo.setName("Elmo Alves Resende Cunha");
+        pitchElmo.setCategory("MASTER");
+        pitchElmo.setFederation("GO");
+        pitchElmo.setOccupation("Assist Referee");
+
+        PitchReferee pitchHeber = new PitchReferee();
+        pitchHeber.setName("Heber Roberto Lopes");
+        pitchHeber.setCategory("MASTER");
+        pitchHeber.setFederation("SC");
+        pitchHeber.setOccupation("4Th Referee");
 
         //VARS
-        Var igorbeneveluto =  new Var();
-        igorbeneveluto.setName("Igor Beneveluto");
-        igorbeneveluto.setCategory("VAR-FIFA");
-        igorbeneveluto.setFederation("MG");
-        igorbeneveluto.setOccupation("VAR");
+        Var varIgorBeneveluto =  new Var();
+        varIgorBeneveluto.setName("Igor Beneveluto");
+        varIgorBeneveluto.setCategory("VAR-FIFA");
+        varIgorBeneveluto.setFederation("MG");
+        varIgorBeneveluto.setOccupation("VAR");
 
-        Var joseClaudio =  new Var();
-        joseClaudio.setName("Jose Claudio");
-        joseClaudio.setCategory("VAR-FIFA");
-        joseClaudio.setFederation("SP");
-        joseClaudio.setOccupation("AVAR");
+        Var varJoseClaudio =  new Var();
+        varJoseClaudio.setName("Jose Claudio");
+        varJoseClaudio.setCategory("VAR-FIFA");
+        varJoseClaudio.setFederation("SP");
+        varJoseClaudio.setOccupation("AVAR");
 
-        Var rodrigoDalonso =  new Var();
-        rodrigoDalonso.setName("Rodrigo Dalonso");
-        rodrigoDalonso.setCategory("VAR-FIFA");
-        rodrigoDalonso.setFederation("SC");
-        rodrigoDalonso.setOccupation("VAR");
+        Var varRodrigoDalonso =  new Var();
+        varRodrigoDalonso.setName("Rodrigo Dalonso");
+        varRodrigoDalonso.setCategory("VAR-FIFA");
+        varRodrigoDalonso.setFederation("SC");
+        varRodrigoDalonso.setOccupation("VAR");
 
-        Var gurarizo =  new Var();
-        gurarizo.setName("Rodrigo Guarizo");
-        gurarizo.setCategory("VAR-FIFA");
-        gurarizo.setFederation("SP");
-        gurarizo.setOccupation("VAR");
-
-
-        Var reway =  new Var();
-        reway.setName("Wagner Reway");
-        reway.setCategory("VAR-FIFA");
-        reway.setFederation("PB");
-        reway.setOccupation("VAR");
+        Var varGuarizo =  new Var();
+        varGuarizo.setName("Rodrigo Guarizo");
+        varGuarizo.setCategory("VAR-FIFA");
+        varGuarizo.setFederation("SP");
+        varGuarizo.setOccupation("VAR");
 
 
+        Var varReway =  new Var();
+        varReway.setName("Wagner Reway");
+        varReway.setCategory("VAR-FIFA");
+        varReway.setFederation("PB");
+        varReway.setOccupation("AVAR");
 
-        Supervisor adriano = new Supervisor();
-        adriano.setName("Adriano de Carvalho");
-        adriano.setCategory("Inspector");
-        adriano.setFederation("TO");
-        adriano.setOccupation("Supervisor");
 
 
-        Supervisor corona = new Supervisor();
-        corona.setName("Ednilson Corona");
-        corona.setCategory("Inspector");
-        corona.setFederation("SP");
-        corona.setOccupation("Supervisor");
+        Supervisor superAdriano = new Supervisor();
+        superAdriano.setName("Adriano de Carvalho");
+        superAdriano.setCategory("Inspector");
+        superAdriano.setFederation("TO");
+        superAdriano.setOccupation("Supervisor");
+
+
+        Supervisor superCorona = new Supervisor();
+        superCorona.setName("Ednilson Corona");
+        superCorona.setCategory("Inspector");
+        superCorona.setFederation("SP");
+        superCorona.setOccupation("Supervisor");
 
 
         Match match01 = new Match();
@@ -134,111 +161,120 @@ public class Main {
         training04.setWorkLoad(146);
 
 
-        Happening job01 = new Happening();
-        job01.setEventType("Match");
-        job01.getSubjects().add(match01);
+        Set<Var> varEvent01 = new HashSet<>();
+        varEvent01.add(varRodrigoDalonso);
+        varEvent01.add(varGuarizo);
 
-        Happening job02 = new Happening();
-        job02.setEventType("Match");
-        job02.getSubjects().add(match02);
+        Set<Supervisor> superEvent01 = new LinkedHashSet<>();
+        superEvent01.add(superAdriano);
 
-        Happening job03 = new Happening();
-        job03.setEventType("Match");
-        job03.getSubjects().add(match03);
+        Set<PitchReferee> pitchEvento01=new HashSet<>();
+        pitchEvento01.add(pitchElmo);
+        pitchEvento01.add(pitchDewson);
+        pitchEvento01.add(pitchAndre);
+        pitchEvento01.add(pitchHeber);
 
-        Happening job04 = new Happening();
-        job04.setEventType("Match");
-        job04.getSubjects().add(match04);
-
-
-
-        Happening tr01 = new Happening();
-        tr01.setEventType("training");
-        tr01.getSubjects().add(training01);
-
-        Happening tr02 = new Happening();
-        tr02.setEventType("Training");
-        tr02.getSubjects().add(training02);
-
-        Happening tr03 = new Happening();
-        tr03.setEventType("Training");
-        tr03.getSubjects().add(training03);
-
-        Happening tr04 = new Happening();
-        tr04.setEventType("Training");
-        tr04.getSubjects().add(training04);
+        Set<PitchReferee> pitchEvento02=new HashSet<>();
+        pitchEvento02.add(pitchElmo);
+        pitchEvento02.add(pitchDewson);
+        pitchEvento02.add(pitchAndre);
+        pitchEvento02.add(pitchHeber);
 
 
+        Happening event01 = new Happening();
+        event01.setEventType("Match");
+        event01.getSubjects().add(match01);
+        event01.setEventTime(16);
+        event01.setVarList(varEvent01);
+        event01.setPitchRefereeList(pitchEvento01);
+        event01.setSupervisorList(superEvent01);
+
+//        System.out.println(event01);
+
+        Happening event02 = new Happening();
+        event02.setEventType("Match");
+        event02.getSubjects().add(match02);
+
+        Happening event03 = new Happening();
+        event03.setEventType("Match");
+        event03.getSubjects().add(match03);
+
+        Happening event04 = new Happening();
+        event04.setEventType("Match");
+        event04.getSubjects().add(match04);
 
 
-        reway.addHappening(job01);
-        reway.addHappening(job02);
-        igorbeneveluto.addHappening(job03);
-        igorbeneveluto.addHappening(job04);
-        rodrigoDalonso.addHappening(job02);
-        rodrigoDalonso.addHappening(job04);
-        gurarizo.addHappening(job01);
-        joseClaudio.addHappening(job03);
+
+        Happening eventoTraining01 = new Happening();
+        eventoTraining01.setEventType("training");
+        eventoTraining01.getSubjects().add(training01);
+
+        Happening eventTraining02 = new Happening();
+        eventTraining02.setEventType("Training");
+        eventTraining02.getSubjects().add(training02);
+
+        Happening eventTraining03 = new Happening();
+        eventTraining03.setEventType("Training");
+        eventTraining03.getSubjects().add(training03);
+
+        Happening eventTraining04 = new Happening();
+        eventTraining04.setEventType("Training");
+        eventTraining04.getSubjects().add(training04);
 
 
-        reway.addHappening(tr04);
-        reway.addHappening(tr01);
-
-        igorbeneveluto.addHappening(tr01);
-        igorbeneveluto.addHappening(tr02);
-
-        rodrigoDalonso.addHappening(tr04);
-        gurarizo.addHappening(tr01);
-        gurarizo.addHappening(tr02);
-
-        joseClaudio.addHappening(tr01);
-        joseClaudio.addHappening(tr04);
-
-        joseClaudio.eventsToDo();
-        joseClaudio.eventsDone();
-
-        adriano.addHappening(job01);
-        adriano.addHappening(job02);
-        adriano.addHappening(job03);
-        adriano.addHappening(job04);
 
 
-        corona.addHappening(tr01);
-        corona.addHappening(tr02);
-        corona.addHappening(tr03);
-        corona.addHappening(tr04);
-
-        corona.eventsToDo();
-        corona.eventsDone();
-
-
-        adriano.eventsToDo();
-        adriano.eventsDone();
+        varReway.addHappening(event01);
+        varReway.addHappening(event02);
+        varIgorBeneveluto.addHappening(event02);
+        varIgorBeneveluto.addHappening(event04);
+        varRodrigoDalonso.addHappening(event02);
+        varRodrigoDalonso.addHappening(event04);
+        varGuarizo.addHappening(event01);
+        varJoseClaudio.addHappening(event02);
 
 
-        Set<Var> varSet = new HashSet<>();
-        varSet.add(rodrigoDalonso);
-        varSet.add(gurarizo);
-        varSet.add(reway);
-        varSet.add(igorbeneveluto);
-        varSet.add(joseClaudio);
+        varReway.addHappening(eventTraining04);
+        varReway.addHappening(eventoTraining01);
 
-        for (Var var:varSet
-             ) {
-            System.out.println(var);
-        }
-        Set<Supervisor> superSet = new HashSet<>();
-        superSet.add(adriano);
-        superSet.add(corona);
+        varIgorBeneveluto.addHappening(eventoTraining01);
+        varIgorBeneveluto.addHappening(eventTraining02);
 
-        System.out.println("-------------------");
-        job01.setVarList(varSet);
-        job01.setSupervisorList(superSet);
-        for (Supervisor supervisor:superSet
-             ) {
-            System.out.println(supervisor);
-        }
-        System.out.println(job01);
+        varRodrigoDalonso.addHappening(eventTraining04);
+        varGuarizo.addHappening(eventoTraining01);
+        varGuarizo.addHappening(eventTraining02);
+
+        varJoseClaudio.addHappening(eventoTraining01);
+        varJoseClaudio.addHappening(eventTraining04);
+
+        varJoseClaudio.eventsToDo();
+        varJoseClaudio.eventsDone();
+
+        superAdriano.addHappening(event02);
+        superAdriano.addHappening(event02);
+        superAdriano.addHappening(event04);
+
+
+        superCorona.addHappening(eventoTraining01);
+        superCorona.addHappening(eventTraining02);
+        superCorona.addHappening(eventTraining03);
+        superCorona.addHappening(eventTraining04);
+
+        superCorona.eventsToDo();
+        superCorona.eventsDone();
+
+
+        superAdriano.eventsToDo();
+        superAdriano.eventsDone();
+
+
+
+
+
+        System.out.println(event01);
+        event02.setPitchRefereeList(pitchEvento02);
+        System.out.println("---------------------");
+        System.out.println(event02);
 
 
 

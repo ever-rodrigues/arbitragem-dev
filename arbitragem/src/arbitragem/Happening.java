@@ -12,10 +12,19 @@ public class Happening {
 
     private Set<Match> matchList = new LinkedHashSet<>();
     private Set<Var> varList = new LinkedHashSet<>();
+    private Set<PitchReferee> pitchRefereeList = new HashSet<>();
     private Set<Supervisor> supervisorList = new LinkedHashSet<>();
     private Set<Training> trainingList = new LinkedHashSet<>();
     private Set<Subject> subjects = new LinkedHashSet<>();
 
+
+    public Set<PitchReferee> getPitchRefereeList() {
+        return pitchRefereeList;
+    }
+
+    public void setPitchRefereeList(Set<PitchReferee> pitchRefereeList) {
+        this.pitchRefereeList = pitchRefereeList;
+    }
 
     public Set<Supervisor> getSupervisorList() {
         return supervisorList;
@@ -78,12 +87,23 @@ public class Happening {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Happening happening = (Happening) o;
-        return eventTime == happening.eventTime && Objects.equals(eventType, happening.eventType) && Objects.equals(matchList, happening.matchList) && Objects.equals(varList, happening.varList) && Objects.equals(supervisorList, happening.supervisorList) && Objects.equals(trainingList, happening.trainingList) && Objects.equals(subjects, happening.subjects);
+        return eventTime == happening.eventTime && Objects.equals(eventType, happening.eventType) && Objects.equals(matchList, happening.matchList) && Objects.equals(varList, happening.varList) && Objects.equals(pitchRefereeList, happening.pitchRefereeList) && Objects.equals(supervisorList, happening.supervisorList) && Objects.equals(trainingList, happening.trainingList) && Objects.equals(subjects, happening.subjects);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventType, eventTime, matchList, varList, supervisorList, trainingList, subjects);
+        return Objects.hash(eventType, eventTime, matchList, varList, pitchRefereeList, supervisorList, trainingList, subjects);
     }
 
+    @Override
+    public String toString() {
+        return "Happening{" +
+                "eventType='" + eventType + '\'' +"\n"+
+                ", subjects=" + subjects +"\n"+
+                ", eventTime=" + eventTime +"hs"+"\n"+
+                ", varList=" + varList +"\n"+
+                ", pitchRefereeList=" + pitchRefereeList +"\n"+
+                ", supervisorList=" + supervisorList +"\n"+
+                '}';
+    }
 }
