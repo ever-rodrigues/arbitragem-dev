@@ -11,9 +11,9 @@ public class Happening {
     private int eventTime;
 
     private Set<Match> matchList = new LinkedHashSet<>();
-    private Set<Referee> refereeList = new LinkedHashSet<>();
+    private Set<Var> varList = new LinkedHashSet<>();
     private Set<Training> trainingList = new LinkedHashSet<>();
-
+    private Set<Subject> subjects = new LinkedHashSet<>();
 
     public String getEventType() {
         return eventType;
@@ -39,12 +39,12 @@ public class Happening {
         this.matchList = matchList;
     }
 
-    public Set<Referee> getRefereeList() {
-        return refereeList;
+    public Set<Var> getVarList() {
+        return varList;
     }
 
-    public void setRefereeList(Set<Referee> refereeList) {
-        this.refereeList = refereeList;
+    public void setVarList(Set<Var> varList) {
+        this.varList = varList;
     }
 
     public Set<Training> getTrainingList() {
@@ -55,28 +55,24 @@ public class Happening {
         this.trainingList = trainingList;
     }
 
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
+    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Happening happening = (Happening) o;
-        return eventTime == happening.eventTime && Objects.equals(eventType, happening.eventType) && Objects.equals(matchList, happening.matchList) && Objects.equals(refereeList, happening.refereeList) && Objects.equals(trainingList, happening.trainingList);
+        return eventTime == happening.eventTime && Objects.equals(eventType, happening.eventType) && Objects.equals(matchList, happening.matchList) && Objects.equals(varList, happening.varList) && Objects.equals(trainingList, happening.trainingList) && Objects.equals(subjects, happening.subjects);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventType, eventTime, matchList, refereeList, trainingList);
-    }
-
-    @Override
-    public String toString() {
-        return "Happening{" +
-                "eventType='" + eventType + '\'' +
-                ", eventTime=" + eventTime +
-                ", matchList=" + matchList +
-                ", refereeList=" + refereeList +
-                ", trainingList=" + trainingList +
-                '}';
+        return Objects.hash(eventType, eventTime, matchList, varList, trainingList, subjects);
     }
 }

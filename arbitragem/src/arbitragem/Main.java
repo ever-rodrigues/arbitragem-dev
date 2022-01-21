@@ -1,5 +1,6 @@
 package arbitragem;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class Main {
@@ -26,14 +27,11 @@ public class Main {
         Team santos = new Team("Santos","Sao Paulo","First Division");
         Team saoPaulo = new Team("Sao Paulo","Sao Paulo","First Division");
 
-
         Var var01 =  new Var();
         var01.setName("Igor Beneveluto");
         var01.setCategory("VAR-FIFA");
         var01.setFederation("MG");
         var01.setOccupation("Referee");
-
-
 
 
         Match match01 = new Match();
@@ -51,22 +49,23 @@ public class Main {
         training01.setWorkLoad(22);
 
 
-        Happening evento01 = new Happening();
-        evento01.setEventType("Match");
-        evento01.getMatchList().add(match01);
-        evento01.setEventTime(16);
+        Happening round01 = new Happening();
+        round01.setEventType("Match");
+        round01.getSubjects().add(match01);
 
         Happening evento02 = new Happening();
         evento02.setEventType("Trainning");
-        evento02.getTrainingList().add(training01);
-
-//        System.out.println(evento01);
-
-
-        var01.addHappening(evento01);
-        System.out.println(var01.getMatchToDo());
+        evento02.getSubjects().add(training01);
+        evento02.getSubjects().add(match01);
 
 
+
+        var01.addHappening(round01);
+        System.out.println(var01);
+        System.out.println("---------------");
+        var01.develop();
+        System.out.println(var01.calcTotalXp());
+        System.out.println(var01.getMatchDone());
 
 
 

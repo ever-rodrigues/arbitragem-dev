@@ -11,16 +11,20 @@ public class Var extends Referee{
     private Set<Subject> matchDone = new LinkedHashSet<>();
 
 
+
     public void addHappening(Happening happening){
-        this.matchToDo.addAll(happening.getMatchList());
-        happening.getRefereeList().add(this);
+        this.matchToDo.addAll(happening.getSubjects());
+        happening.getVarList().add(this);
     }
 
     public void develop(){
-        Optional<Subject> subject = this.matchDone.stream().findFirst();
+        Optional<Subject> subject = this.matchToDo.stream().findFirst();
+        System.out.println(subject);
         if(subject.isPresent()){
             this.matchDone.add(subject.get());
+            System.out.println(matchDone);
             this.matchToDo.remove(subject.get());
+            System.out.println(matchToDo);
         }else {
             System.out.println("You are not aplyed no any Match");
         }
@@ -62,5 +66,14 @@ public class Var extends Referee{
     @Override
     public int hashCode() {
         return Objects.hash(matchToDo, matchDone);
+    }
+
+
+    @Override
+    public String toString() {
+        return "Var{" +
+                "matchToDo=" + matchToDo +
+                ", matchDone=" + matchDone +
+                '}';
     }
 }

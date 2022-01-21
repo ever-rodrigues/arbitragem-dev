@@ -12,9 +12,6 @@ public class Referee {
     private String category;
 
 
-
-
-
     public String getName() {
         return name;
     }
