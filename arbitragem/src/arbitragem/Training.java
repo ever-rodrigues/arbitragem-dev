@@ -23,10 +23,10 @@ public class Training extends Subject {
     @Override
     public String toString() {
         return "Training{"
-                +"title"+getTitle()
-                +"description"+getDescription()
-                +"date"+getDate()
-                +"work load=" + workLoad +
+                +" title= "+getTitle()
+                +" description= "+getDescription()
+                +" date= "+getDate()
+                +" work load= " + workLoad +'\''+
                 '}';
     }
 }
