@@ -11,8 +11,8 @@ public abstract class Event {
     protected static final double XP_DEFAULT=10;
     private String title;
     private String description;
-    private Date date;
-    private Time time;
+    private String date;
+    private String time;
     private String place;
 
 
@@ -23,6 +23,13 @@ public abstract class Event {
     private Set<Supervisor> onSupervisors = new HashSet<>();
 
 
+    public Event(String title, String description, String date, String time, String place) {
+        this.title = title;
+        this.description = description;
+        this.date = date;
+        this.time = time;
+        this.place = place;
+    }
 
     public abstract double calcXP();
 
@@ -43,19 +50,19 @@ public abstract class Event {
         this.description = description;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public Time getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(Time time) {
+    public void setTime(String time) {
         this.time = time;
     }
 

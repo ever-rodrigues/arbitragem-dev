@@ -1,5 +1,7 @@
 package arbitragem;
 
+import java.sql.Date;
+import java.sql.Time;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
@@ -11,6 +13,10 @@ public class TrainingProgram extends Event {
     private Set<Var> onVars = new HashSet<>();
     private Set<PitchReferee> onPitchReferes = new HashSet<>();
     private Set<Supervisor> onTrainingSuper = new HashSet<>();
+
+    public TrainingProgram(String title, String description, String date, String time, String place) {
+        super(title, description, date, time, place);
+    }
 
 
     @Override
