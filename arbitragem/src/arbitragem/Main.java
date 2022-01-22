@@ -1,5 +1,15 @@
 package arbitragem;
 
+import arbitragem.Team.Stadium;
+import arbitragem.Team.Team;
+import arbitragem.events.EventSchedule;
+import arbitragem.events.Match;
+import arbitragem.events.Training;
+import arbitragem.referee.PitchReferee;
+import arbitragem.referee.Referee;
+import arbitragem.referee.Supervisor;
+import arbitragem.referee.Var;
+
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Set;
@@ -29,12 +39,25 @@ public class Main {
         Team saoPaulo = new Team("Sao Paulo","Sao Paulo","First Division");
 
 //REFERESS
+
+        Stadium arenaDaBaixada = new Stadium("Arena da Baixada",athletico);
+        //DESCRIBING UPCAST AT OBJECTS
+        //REFEREE IS SUPER CLASSS AND PITCHREFEREE IS SUBCLASSE OF REFEREE
+        Referee upcastTEST = new PitchReferee();
+        upcastTEST.setName("UPCAST");
+        upcastTEST.setOccupation("OCP_UPCAST");
+        upcastTEST.setFederation("FED_UPCAST");
+        upcastTEST.setCategory("CAT_UPCAST");
+        
+
         PitchReferee pitchAndre = new PitchReferee();
         pitchAndre.setName("Andre Luis");
         pitchAndre.setCategory("MASTER");
         pitchAndre.setFederation("GO");
         pitchAndre.setOccupation("Master Referee");
 
+        Set<Referee> refereeTEST = new HashSet<>();
+        refereeTEST.add(pitchAndre);
 
         PitchReferee refereePitchDewson = new PitchReferee();
         refereePitchDewson.setName("Dewson Fernando Freitas da Silva");
@@ -108,7 +131,6 @@ public class Main {
         match01.setTitle("Competition");
         match01.setTeamHome(vasco);
         match01.setTeamAway(flamengo);
-        match01.setStadium("Maracana");
 
         Match match02 = new Match();
         match02.setDate("21-01-2022");
@@ -116,7 +138,6 @@ public class Main {
         match02.setTitle("Competition");
         match02.setTeamHome(juventude);
         match02.setTeamAway(americaMg);
-        match02.setStadium("Alfredo Jaconi");
 
         Match match03 = new Match();
         match03.setDate("21-01-2022");
@@ -124,7 +145,6 @@ public class Main {
         match03.setTitle("Competition");
         match03.setTeamHome(corinthians);
         match03.setTeamAway(ceara);
-        match03.setStadium("Arena Corinthians");
 
         Match match04 = new Match();
         match04.setDate("21-01-2022");
@@ -132,31 +152,29 @@ public class Main {
         match04.setTitle("Competition");
         match04.setTeamHome(atleticoGO);
         match04.setTeamAway(coritiba);
-        match04.setStadium("Arena Goias");
 
         Training training01 = new Training();
         training01.setTitle("Homologation");
         training01.setDescription("Homologation FERJ");
-        training01.setDate("15-02-2022");
         training01.setWorkLoad(48);
 
         Training training02 = new Training();
         training02.setTitle("Homologation");
         training02.setDescription("Homologation CBF");
-        training02.setDate("22-12-2022");
         training02.setWorkLoad(96);
 
         Training training03 = new Training();
         training03.setTitle("Homologation");
         training03.setDescription("Homologation CBF");
-        training03.setDate("12-01-2023");
         training03.setWorkLoad(124);
 
         Training training04 = new Training();
         training04.setTitle("Homologation");
         training04.setDescription("Homologation FERJ");
-        training04.setDate("27-03-2023");
         training04.setWorkLoad(146);
+
+
+
 
 
         Set<Var> varTeam01 = new HashSet<>();
@@ -275,7 +293,9 @@ public class Main {
         System.out.println(event02);
 
 
-
+        Match match10 = new Match();
+        match10.createMatch(vasco,flamengo,arenaDaBaixada,"22/05/2022");
+        System.out.println(match10);
 
 
     }

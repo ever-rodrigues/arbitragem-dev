@@ -1,4 +1,7 @@
-package arbitragem;
+package arbitragem.referee;
+
+import arbitragem.Details;
+import arbitragem.events.EventSchedule;
 
 import java.time.LocalDateTime;
 import java.util.*;

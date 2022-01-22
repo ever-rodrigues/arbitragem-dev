@@ -3,7 +3,6 @@ package arbitragem;
 public abstract class Details {
     private String title;
     private String description;
-    private String date;
 
     protected static final double XP_DEFAULT = 10;
 
@@ -25,12 +24,4 @@ public abstract class Details {
         this.description = description;
     }
 
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
 }

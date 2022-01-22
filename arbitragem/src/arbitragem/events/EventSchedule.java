@@ -1,4 +1,9 @@
-package arbitragem;
+package arbitragem.events;
+
+import arbitragem.Details;
+import arbitragem.referee.PitchReferee;
+import arbitragem.referee.Supervisor;
+import arbitragem.referee.Var;
 
 import java.util.HashSet;
 import java.util.LinkedHashSet;

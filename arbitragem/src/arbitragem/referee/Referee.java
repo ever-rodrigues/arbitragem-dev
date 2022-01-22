@@ -1,4 +1,4 @@
-package arbitragem;
+package arbitragem.referee;
 
 import java.util.LinkedHashSet;
 import java.util.Objects;
@@ -10,6 +10,7 @@ public class Referee {
     private String occupation;
     private String federation;
     private String category;
+
 
 
     public String getName() {

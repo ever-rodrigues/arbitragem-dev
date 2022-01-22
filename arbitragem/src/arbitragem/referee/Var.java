@@ -1,4 +1,7 @@
-package arbitragem;
+package arbitragem.referee;
+
+import arbitragem.Details;
+import arbitragem.events.EventSchedule;
 
 import java.time.LocalDateTime;
 import java.util.*;
@@ -7,6 +10,8 @@ public class Var extends Referee{
 
     private Set<Details> eventsToDo = new LinkedHashSet<>();
     private Set<Details> eventsDone = new LinkedHashSet<>();
+
+
 
     public void addEventSchedule(EventSchedule eventSchedule){
         this.eventsToDo.addAll(eventSchedule.getSubjects());

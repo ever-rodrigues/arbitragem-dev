@@ -1,4 +1,4 @@
-package arbitragem;
+package arbitragem.referee;
 
 import java.util.HashSet;
 import java.util.Objects;

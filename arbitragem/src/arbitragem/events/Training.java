@@ -1,4 +1,6 @@
-package arbitragem;
+package arbitragem.events;
+
+import arbitragem.Details;
 
 public class Training extends Details {
 
@@ -23,7 +25,6 @@ public class Training extends Details {
         return "Training{"
                 +" title= "+getTitle()
                 +" description= "+getDescription()
-                +" date= "+getDate()
                 +" work load= " + workLoad +'\''+
                 '}';
     }

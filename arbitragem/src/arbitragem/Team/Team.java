@@ -1,4 +1,4 @@
-package arbitragem;
+package arbitragem.Team;
 
 public class Team {
     private String name;
@@ -10,6 +10,10 @@ public class Team {
         this.name = name;
         State = state;
         League = league;
+    }
+
+    public Team(String name) {
+        this.name = name;
     }
 
     public String getName() {
@@ -38,10 +42,10 @@ public class Team {
 
     @Override
     public String toString() {
-        return "Teams{" +
+        return "" +
                 "name='" + name + '\'' +
-                ", State='" + State + '\'' +
-                ", League='" + League + '\'' +
+//                ", State='" + State + '\'' +
+//                ", League='" + League + '\'' +
                 '}';
     }
 }
