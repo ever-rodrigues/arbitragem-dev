@@ -1,6 +1,6 @@
 package arbitragem;
 
-public abstract class Subject {
+public abstract class Details {
     private String title;
     private String description;
     private String date;

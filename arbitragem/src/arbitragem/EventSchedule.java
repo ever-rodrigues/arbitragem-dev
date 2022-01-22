@@ -1,12 +1,11 @@
 package arbitragem;
 
-import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class Happening {
+public class EventSchedule {
     private String eventType;
     private int eventTime;
 
@@ -15,7 +14,7 @@ public class Happening {
     private Set<PitchReferee> pitchRefereeList = new HashSet<>();
     private Set<Supervisor> supervisorList = new LinkedHashSet<>();
     private Set<Training> trainingList = new LinkedHashSet<>();
-    private Set<Subject> subjects = new LinkedHashSet<>();
+    private Set<Details> details = new LinkedHashSet<>();
 
 
     public Set<PitchReferee> getPitchRefereeList() {
@@ -74,32 +73,32 @@ public class Happening {
         this.trainingList = trainingList;
     }
 
-    public Set<Subject> getSubjects() {
-        return subjects;
+    public Set<Details> getSubjects() {
+        return details;
     }
 
-    public void setSubjects(Set<Subject> subjects) {
-        this.subjects = subjects;
+    public void setSubjects(Set<Details> details) {
+        this.details = details;
     }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Happening happening = (Happening) o;
-        return eventTime == happening.eventTime && Objects.equals(eventType, happening.eventType) && Objects.equals(matchList, happening.matchList) && Objects.equals(varList, happening.varList) && Objects.equals(pitchRefereeList, happening.pitchRefereeList) && Objects.equals(supervisorList, happening.supervisorList) && Objects.equals(trainingList, happening.trainingList) && Objects.equals(subjects, happening.subjects);
+        EventSchedule eventSchedule = (EventSchedule) o;
+        return eventTime == eventSchedule.eventTime && Objects.equals(eventType, eventSchedule.eventType) && Objects.equals(matchList, eventSchedule.matchList) && Objects.equals(varList, eventSchedule.varList) && Objects.equals(pitchRefereeList, eventSchedule.pitchRefereeList) && Objects.equals(supervisorList, eventSchedule.supervisorList) && Objects.equals(trainingList, eventSchedule.trainingList) && Objects.equals(details, eventSchedule.details);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(eventType, eventTime, matchList, varList, pitchRefereeList, supervisorList, trainingList, subjects);
+        return Objects.hash(eventType, eventTime, matchList, varList, pitchRefereeList, supervisorList, trainingList, details);
     }
 
     @Override
     public String toString() {
-        return "Happening{" +
+        return "EventSchedule{" +
                 "eventType='" + eventType + '\'' +"\n"+
-                ", subjects=" + subjects +"\n"+
+                ", details=" + details +"\n"+
                 ", eventTime=" + eventTime +"hs"+"\n"+
                 ", varList=" + varList +"\n"+
                 ", pitchRefereeList=" + pitchRefereeList +"\n"+

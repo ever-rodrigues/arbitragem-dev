@@ -1,8 +1,6 @@
 package arbitragem;
 
-import java.time.LocalDate;
-
-public class Training extends Subject {
+public class Training extends Details {
 
     private int workLoad;
 

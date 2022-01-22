@@ -5,16 +5,16 @@ import java.util.*;
 
 public class Supervisor extends Referee{
 
-    private Set<Subject> eventsToDo = new LinkedHashSet<>();
-    private Set<Subject> eventsDone = new LinkedHashSet<>();
+    private Set<Details> eventsToDo = new LinkedHashSet<>();
+    private Set<Details> eventsDone = new LinkedHashSet<>();
 
-    public void addHappening(Happening happening){
-        this.eventsToDo.addAll(happening.getSubjects());
-        happening.getSupervisorList().add(this);
+    public void addHappening(EventSchedule eventSchedule){
+        this.eventsToDo.addAll(eventSchedule.getSubjects());
+        eventSchedule.getSupervisorList().add(this);
     }
 
     public void develop(){
-        Optional<Subject> subject = this.eventsToDo.stream().findFirst();
+        Optional<Details> subject = this.eventsToDo.stream().findFirst();
         if(subject.isPresent()){
             this.eventsDone.add(subject.get());
             this.eventsToDo.remove(subject.get());
@@ -26,7 +26,7 @@ public class Supervisor extends Referee{
     public void eventsDone(){
         System.out.println("EVENTS DONE! "+"QUERY ON: "+ LocalDateTime.now());
         System.out.println(this.getName());
-        Iterator<Subject> iterator = eventsDone.iterator();
+        Iterator<Details> iterator = eventsDone.iterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
@@ -36,7 +36,7 @@ public class Supervisor extends Referee{
     public void eventsToDo(){
         System.out.println("EVENTS TO DO! "+"QUERY ON: "+LocalDateTime.now());
         System.out.println(this.getName());
-        Iterator<Subject> iterator = eventsToDo.iterator();
+        Iterator<Details> iterator = eventsToDo.iterator();
         while (iterator.hasNext()){
             System.out.println(iterator.next());
         }
@@ -46,24 +46,24 @@ public class Supervisor extends Referee{
     public double calcTotalXp(){
         return this.eventsDone
                 .stream()
-                .mapToDouble(Subject::calcXP)
+                .mapToDouble(Details::calcXP)
                 .sum();
     }
 
 
-    public Set<Subject> getEventsToDo() {
+    public Set<Details> getEventsToDo() {
         return eventsToDo;
     }
 
-    public void setEventsToDo(Set<Subject> eventsToDo) {
+    public void setEventsToDo(Set<Details> eventsToDo) {
         this.eventsToDo = eventsToDo;
     }
 
-    public Set<Subject> getEventsDone() {
+    public Set<Details> getEventsDone() {
         return eventsDone;
     }
 
-    public void setEventsDone(Set<Subject> eventsDone) {
+    public void setEventsDone(Set<Details> eventsDone) {
         this.eventsDone = eventsDone;
     }
 

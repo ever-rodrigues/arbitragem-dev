@@ -1,6 +1,6 @@
 package arbitragem;
 
-public class Match extends Subject {
+public class Match extends Details {
     private Team teamHome;
     private Team teamAway;
     private String stadium;
